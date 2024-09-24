@@ -1,0 +1,27 @@
+<div ng-controller="ColaboradorController"
+     ng-init="carregarColaboradores()" class="container p-4 w-100">
+
+    <div class="container">
+        <h3 class="text-center">Hierarquia de Funcionários</h3>
+
+        <div class="form-container">
+                <input type="text" ng-model="novoFuncionario.nome"
+                       placeholder="Nome" />
+                <input type="text" ng-model="novoFuncionario.senha"
+                       placeholder="Senha" />
+                <input type="number" ng-model="novoFuncionario.supervisorId"
+                     placeholder="ID do supervisor" />
+                <button ng-click="criarFuncionario()">salvar</button>
+        </div>
+
+        <div ng-show="colaboradores.length === 0" class="text-center">
+            Nenhum Funcionario encontrado.
+        </div>
+
+        <div class="tableContent" ng-repeat="f in colaboradores">
+            <detalhe-funcionario funcionario="f"></detalhe-funcionario>
+        </div>
+
+    </div>
+
+  </div>
